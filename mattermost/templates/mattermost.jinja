@@ -129,7 +129,7 @@
 {%- set log = sql.get('SqlSettings', {}) %}
     "SqlSettings": {
     	"DriverName": "{{ sql.get('DriverName', 'mysql') }}",
-	"DataSource": "{{ sql.get('DataSource', 'mmuser:mostest@tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s' }}",
+	"DataSource": "{{ sql.get('DataSource', 'mmuser:mostest@tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s') }}",
         "DataSourceReplicas": [],
         "DataSourceSearchReplicas": [],
 	"MaxIdleConns": {{ sql.get('MaxIdleConns', '20') }},
