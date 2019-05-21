@@ -126,17 +126,18 @@
         "IosLatestVersion": "",
         "IosMinVersion": ""
     },
+{%- set log = sql.get('SqlSettings', {}) %}
     "SqlSettings": {
-        "DriverName": "mysql",
-        "DataSource": "mmuser:mostest@tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+    	"DriverName": "{{ sql.get('DriverName', 'mysql') }}",
+	"DataSource": "{{ sql.get('DataSource', 'mmuser:mostest@tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s' }}",
         "DataSourceReplicas": [],
         "DataSourceSearchReplicas": [],
-        "MaxIdleConns": 20,
-        "ConnMaxLifetimeMilliseconds": 3600000,
-        "MaxOpenConns": 300,
-        "Trace": false,
-        "AtRestEncryptKey": "",
-        "QueryTimeout": 30
+	"MaxIdleConns": {{ sql.get('MaxIdleConns', '20') }},
+	"ConnMaxLifetimeMilliseconds": {{ sql.get('ConnMaxLifetimeMilliseconds', '3600000') }},
+	"MaxOpenConns": {{ sql.get('MaxOpenConns', '300') }},
+	"Trace": {{ sql.get('Trace', 'false') }},
+	"AtRestEncryptKey": "{{ sql.get('AtRestEncryptKey', '') }}",
+	"QueryTimeout": {{ sql.get('QueryTimeout', '30') }}
     },
 {%- set log = mattermost.get('LogSettings', {}) %}
     "LogSettings": {
