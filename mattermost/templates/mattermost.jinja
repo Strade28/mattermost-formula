@@ -138,6 +138,7 @@
         "AtRestEncryptKey": "",
         "QueryTimeout": 30
     },
+{%- set log = mattermost.get('LogSettings', {}) %}
     "LogSettings": {
         "EnableConsole": true,
         "ConsoleLevel": "INFO",
@@ -145,7 +146,7 @@
         "EnableFile": true,
         "FileLevel": "INFO",
         "FileJson": true,
-        "FileLocation": "",
+	"FileLocation": "{{ log.get('FileLocation', '') }}",
         "EnableWebhookDebugging": true,
         "EnableDiagnostics": true
     },
@@ -240,14 +241,15 @@
         "AllowCustomThemes": true,
         "AllowedThemes": []
     },
+{%- set gitlab = mattermost.get('GitlabSettings', {}) %}
     "GitLabSettings": {
-        "Enable": false,
-        "Secret": "",
-        "Id": "",
-        "Scope": "",
-        "AuthEndpoint": "",
-        "TokenEndpoint": "",
-        "UserApiEndpoint": ""
+        "Enable": {{ gitlab.get('Enable', 'false') }},
+	"Secret": "{{ gitlab.get'Secret', '') }}",
+	"Id": "{{ gitlab.get('Id', '') }}",
+	"Scope": "{{ gitlab.get('Scope', '') }}",
+	"AuthEndpoint": "{{ gitlab.get('AuthEndpoint', '') }}",
+	"TokenEndpoint": "{{ gitlab.get('TokenEndpoint', '') }}",
+	"UserApiEndpoint": "{{ gitlab.get('UserApiEndpoint', '') }}"
     },
     "GoogleSettings": {
         "Enable": false,
