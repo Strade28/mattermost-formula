@@ -135,7 +135,7 @@
 	"MaxIdleConns": {{ sql.get('MaxIdleConns', '20') }},
 	"ConnMaxLifetimeMilliseconds": {{ sql.get('ConnMaxLifetimeMilliseconds', '3600000') }},
 	"MaxOpenConns": {{ sql.get('MaxOpenConns', '300') }},
-	"Trace": {{ sql.get('Trace', 'false') }},
+	"Trace": {{ sql.get('Trace', 'false')|lower() }},
 	"AtRestEncryptKey": "{{ sql.get('AtRestEncryptKey', '') }}",
 	"QueryTimeout": {{ sql.get('QueryTimeout', '30') }}
     },
