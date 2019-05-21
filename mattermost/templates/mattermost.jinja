@@ -126,7 +126,7 @@
         "IosLatestVersion": "",
         "IosMinVersion": ""
     },
-{%- set log = sql.get('SqlSettings', {}) %}
+{%- set sql = mattermost.get('SqlSettings', {}) %}
     "SqlSettings": {
     	"DriverName": "{{ sql.get('DriverName', 'mysql') }}",
 	"DataSource": "{{ sql.get('DataSource', 'mmuser:mostest@tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s') }}",
