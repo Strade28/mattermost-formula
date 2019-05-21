@@ -245,7 +245,7 @@
 {%- set gitlab = mattermost.get('GitlabSettings', {}) %}
     "GitLabSettings": {
         "Enable": {{ gitlab.get('Enable', 'false') }},
-	"Secret": "{{ gitlab.get'Secret', '') }}",
+	"Secret": "{{ gitlab.get('Secret', '') }}",
 	"Id": "{{ gitlab.get('Id', '') }}",
 	"Scope": "{{ gitlab.get('Scope', '') }}",
 	"AuthEndpoint": "{{ gitlab.get('AuthEndpoint', '') }}",
