@@ -242,7 +242,7 @@
         "AllowCustomThemes": true,
         "AllowedThemes": []
     },
-{%- set gitlab = mattermost.get('GitlabSettings', {}) %}
+{%- set gitlab = mattermost.get('GitLabSettings', {}) %}
     "GitLabSettings": {
         "Enable": {{ gitlab.get('Enable', 'false') }},
 	"Secret": "{{ gitlab.get('Secret', '') }}",
